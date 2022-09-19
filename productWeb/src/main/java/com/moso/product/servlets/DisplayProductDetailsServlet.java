@@ -32,10 +32,11 @@ public class DisplayProductDetailsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		ProductBO bo = new ProductBOImpl();
-		Product prd = bo.findProduct(Integer.parseInt(request.getParameter("id")));
+		Product prd = bo.findProduct(Integer.parseInt(request.getParameter("id").trim()));
 		PrintWriter out = response.getWriter();
 		
-		out.print("Product Details");
+		out.print("Product Details - Updated 9/19/2022");
+	
 		out.print("Product ID: " + prd.getId());
 		out.print("Product Name: " + prd.getName());
 		out.print("Product Description: " + prd.getDescription());
